@@ -20,7 +20,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
         glview->setFrameSize(320, 480);
         director->setOpenGLView(glview);
     }
-
+    srand(time(nullptr));
     director->setDisplayStats(true);
     director->setAnimationInterval(1.0 / 60);
     auto scene = WelcomeScene::create();

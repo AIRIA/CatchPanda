@@ -99,6 +99,33 @@ void GameScene::__dotTouchHandler(Ref *pSender)
 
 void GameScene::__getNeighbor(Dot *dot)
 {
+    auto surroundDotsVec = __getSurroundDots(dot);
+    for (auto it=surroundDotsVec.begin(); it!=surroundDotsVec.end(); it++) {
+        if (roadDotsVec.contains(*it)) {
+            continue;
+        }
+        roadDotsVec.pushBack(*it);
+        __getNeighbor(*it);
+    }
+    
+}
+
+bool GameScene::__isCatch()
+{
+    for (auto i=roadDotsVec.begin(); i!=roadDotsVec.end(); i++) {
+        auto dot = *i;
+        auto row = dot->getRow(),col = dot->getCol();
+        if(row==1||row==9||col==1||col==9)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+Vector<Dot*> GameScene::__getSurroundDots(Dot *dot)
+{
+    Vector<Dot *> surroundDotsVec;
     auto row = dot->getRow();
     auto col = dot->getCol();
     auto offset = 1;
@@ -120,25 +147,32 @@ void GameScene::__getNeighbor(Dot *dot)
             continue;
         }
         auto dot = static_cast<Dot*>(node);
-        if (roadDotsVec.contains(dot)||dot->getIsEnable()==false) {
+        if (dot->getIsEnable()==false) {
             continue;
         }
-        roadDotsVec.pushBack(dot);
-        __getNeighbor(dot);
+        surroundDotsVec.pushBack(dot);
+    }
+    return surroundDotsVec;
+}
+
+int GameScene::__getShortestDistance(Dot *dot)
+{
+    auto surroundDots = __getSurroundDots(dot);
+    auto step = 0;
+    for (auto it=surroundDots.begin(); it!=surroundDots.end(); it++) {
+        auto dot = *it;
+        auto row = dot->getRow();
+        auto col = dot->getRow();
+
     }
 }
 
-bool GameScene::__isCatch()
+Dot *GameScene::__getPandaDot()
 {
-    for (auto i=roadDotsVec.begin(); i!=roadDotsVec.end(); i++) {
-        auto dot = *i;
-        auto row = dot->getRow(),col = dot->getCol();
-        if(row==1||row==9||col==1||col==9)
-        {
-            return false;
-        }
-    }
-    return true;
+    auto pandaRow = panda->getRow();
+    auto pandaCol = panda->getCol();
+    auto idx = pandaRow*9+pandaCol;
+    return static_cast<Dot*>(wrapper->getChildByTag(idx+1000-10));
 }
 
 Dot *GameScene::__getNextDot()
