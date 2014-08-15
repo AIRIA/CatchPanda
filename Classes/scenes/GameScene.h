@@ -27,6 +27,8 @@ private:
     void initDots();
     Vector<Dot*> dotsVec;
     Vector<Dot*> roadDotsVec; //可以行走的dot的集合
+    Vector<Dot*> bestPath;
+    
     void __dotTouchHandler(Ref *pSender);
     /**
      * 获取到所有可以通过的路点 
@@ -50,6 +52,14 @@ private:
      * 获取熊猫所在的点 
      */
     Dot *__getPandaDot();
+    /**
+     * 获取到指定点的最短路径
+     */
+    Vector<Dot*> __findShortestStep(Dot *endDot);
+    /**
+     * 获取所有最短路点
+     */
+    void __findShortPath();
 
 };
 

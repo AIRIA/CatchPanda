@@ -60,6 +60,7 @@ void GameScene::initDots()
             dot->getEventDispatcher()->removeEventListenersForTarget(dot);
             dot->setIsEnable(enable);
         }
+        dotsVec.pushBack(dot);
         wrapper->addChild(dot);
         dot->setTouchHandler([this](Ref *pSender)->void{
             this->__dotTouchHandler(pSender);
@@ -85,15 +86,32 @@ void GameScene::__dotTouchHandler(Ref *pSender)
     target->setIsEnable(false);
     
     auto dot = static_cast<Dot*>(wrapper->getChildByTag(1040));
+    __findShortPath();
+    if (bestPath.size()==0)
+    {
+        panda->beCatch();
+    }
+    else
+    {
+        auto idx = 1;
+        if (bestPath.size()==1) {
+            idx = 0;
+        }
+        auto nextDot = bestPath.at(idx);
+        panda->setCol(nextDot->getCol());
+        panda->setRow(nextDot->getRow());
+        panda->setPosition(nextDot->getPosition());
+    }
     
     /* 检测熊猫所有可以行走的点 */
     __getNeighbor(dot);
     log("road:%ld",roadDotsVec.size());
     if(__isCatch())
     {
-        panda->beCatch();
+        
     }
     roadDotsVec.clear();
+    
 }
 
 
@@ -155,6 +173,83 @@ Vector<Dot*> GameScene::__getSurroundDots(Dot *dot)
     return surroundDotsVec;
 }
 
+Vector<Dot*> GameScene::__findShortestStep(Dot *endDot)
+{
+    Vector<Dot*> openVec; //寻路待考察集合
+    Vector<Dot*> closeVec;//寻路已考察集合
+    auto startDot = __getPandaDot();
+    auto dot = startDot;
+    while (dot!=endDot) {
+        auto surroundDots = __getSurroundDots(dot);
+        /* 计算出来周围的节点代价 */
+        for (auto it = surroundDots.begin(); it!=surroundDots.end(); it++)
+        {
+            auto surroundDot = *it;
+            auto cost = surroundDot->getPosition().getDistance(endDot->getPosition());
+            if (openVec.contains(surroundDot) || closeVec.contains(surroundDot))
+            {
+                if (surroundDot->getCost()>cost)
+                {
+                    surroundDot->setCost(cost);
+                }
+            }
+            else
+            {
+                surroundDot->setCost(cost);
+                openVec.pushBack(surroundDot);
+            }
+        }
+        /* 对代价进行排序 选择最优秀的点 */
+        auto minCost = -1;
+        Dot *nextDot = nullptr;
+        for(auto it = openVec.begin();it!=openVec.end();it++)
+        {
+            auto cost = (*it)->getCost();
+            if (minCost==-1 || cost<minCost)
+            {
+                minCost = cost;
+                nextDot = *it;
+            }
+        }
+        /* 当前开始的节点已经考察过 不再考察 加入到已考察列表*/
+        closeVec.pushBack(dot);
+//        dot->setOpacity(128);
+        if(openVec.size()==0)
+        {
+            log("%s","路径无效");
+            closeVec.clear();
+            return closeVec;
+        }
+        dot = nextDot;
+        openVec.eraseObject(nextDot);
+    }
+    return closeVec;
+}
+
+void GameScene::__findShortPath()
+{
+    Vector<Dot*> borderDotVec;
+    for (auto it = dotsVec.begin(); it!=dotsVec.end(); it++) {
+        auto dot = *it;
+        auto row = dot->getRow(),col = dot->getCol();
+        if ((row==1||row==9||col==1||col==9)&&dot->getIsEnable()) {
+            borderDotVec.pushBack(dot);
+        }
+    }
+    
+    auto step = -1;
+    for (auto it = borderDotVec.begin(); it!=borderDotVec.end(); it++) {
+       
+        auto path = __findShortestStep(*it);
+        if (step==-1 || path.size()<step) {
+            step = path.size();
+            bestPath.clear();
+            bestPath.pushBack(path);
+        }
+    }
+    
+}
+
 int GameScene::__getShortestDistance(Dot *dot)
 {
     auto surroundDots = __getSurroundDots(dot);
@@ -163,7 +258,7 @@ int GameScene::__getShortestDistance(Dot *dot)
         auto dot = *it;
         auto row = dot->getRow();
         auto col = dot->getRow();
-
+        
     }
 }
 

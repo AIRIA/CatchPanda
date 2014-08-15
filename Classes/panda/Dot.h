@@ -18,6 +18,7 @@ public:
     CC_SYNTHESIZE(int, m_iRow, Row);
     CC_SYNTHESIZE(int, m_iCol, Col);
     CC_SYNTHESIZE(bool, m_bIsEnable, IsEnable);
+    CC_SYNTHESIZE(float, m_fCost, Cost);
     
 };
 
