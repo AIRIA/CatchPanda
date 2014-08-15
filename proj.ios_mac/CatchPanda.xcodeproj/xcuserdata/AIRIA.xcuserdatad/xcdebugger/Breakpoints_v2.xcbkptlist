@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/scenes/GameScene.cpp"
-            timestampString = "429769628.984235"
+            timestampString = "429770562.392886"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "307"
-            endingLineNumber = "307">
+            startingLineNumber = "301"
+            endingLineNumber = "301">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

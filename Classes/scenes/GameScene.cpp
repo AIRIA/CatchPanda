@@ -84,34 +84,40 @@ void GameScene::__dotTouchHandler(Ref *pSender)
     target->getEventDispatcher()->removeEventListenersForTarget(this);
     target->setDisplayFrame(Sprite::createWithSpriteFrameName("pot62r.png")->getSpriteFrame());
     target->setIsEnable(false);
-    
-    auto dot = static_cast<Dot*>(wrapper->getChildByTag(1040));
+    target->getEventDispatcher()->removeEventListenersForTarget(target);
+//        auto dot = static_cast<Dot*>(wrapper->getChildByTag(1040));
     __findShortPath();
+    Dot *nextDot = nullptr;
     if (bestPath.size()==0)
     {
         panda->beCatch();
+        /* 被围住以后随机移动 */
+        auto surroundDots = __getSurroundDots(__getPandaDot());
+        auto count = surroundDots.size();
+        if (count==0) {
+            MessageBox("game win", "tips");
+            return;
+        }
+        else
+        {
+            auto idx = rand()%count;
+            nextDot = surroundDots.at(idx);
+        }
     }
     else
     {
-        auto idx = 1;
-        if (bestPath.size()==1) {
-            idx = 0;
-        }
-        auto nextDot = bestPath.at(idx);
-        panda->setCol(nextDot->getCol());
-        panda->setRow(nextDot->getRow());
-        panda->setPosition(nextDot->getPosition());
+        nextDot = bestPath.at(1);
     }
+    panda->setCol(nextDot->getCol());
+    panda->setRow(nextDot->getRow());
+    panda->setPosition(nextDot->getPosition());
     
-    /* 检测熊猫所有可以行走的点 */
-    __getNeighbor(dot);
-    log("road:%ld",roadDotsVec.size());
-    if(__isCatch())
+    /* 判断是不是游戏结束 */
+    auto pandaRow = panda->getRow(),pandaCol = panda->getCol();
+    if(pandaRow==1||pandaRow==9||pandaCol==1||pandaCol==9)
     {
-        
+        MessageBox("game over", "tips");
     }
-    roadDotsVec.clear();
-    
 }
 
 
@@ -126,19 +132,6 @@ void GameScene::__getNeighbor(Dot *dot)
         __getNeighbor(*it);
     }
     
-}
-
-bool GameScene::__isCatch()
-{
-    for (auto i=roadDotsVec.begin(); i!=roadDotsVec.end(); i++) {
-        auto dot = *i;
-        auto row = dot->getRow(),col = dot->getCol();
-        if(row==1||row==9||col==1||col==9)
-        {
-            return false;
-        }
-    }
-    return true;
 }
 
 Vector<Dot*> GameScene::__getSurroundDots(Dot *dot)
@@ -223,6 +216,7 @@ Vector<Dot*> GameScene::__findShortestStep(Dot *endDot)
         dot = nextDot;
         openVec.eraseObject(nextDot);
     }
+    closeVec.pushBack(endDot);
     return closeVec;
 }
 
