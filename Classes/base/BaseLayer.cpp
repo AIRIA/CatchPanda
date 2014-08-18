@@ -33,7 +33,6 @@ void BaseLayer::onExit()
 {
     Layer::onExit();
     NotificationCenter::getInstance()->removeAllObservers(this);
-    SimpleAudioEngine::getInstance()->stopBackgroundMusic();
 }
 
 void BaseLayer::__loadedNotificationHander(cocos2d::Ref *pObj)
@@ -60,18 +59,6 @@ void BaseLayer::__loadedNotificationHander(cocos2d::Ref *pObj)
 void BaseLayer::onTexturesLoaded()
 {
     textureFiles.clear();
-    auto soundIt = soundFiles.begin();
-    while (soundIt!=soundFiles.end()) {
-        SimpleAudioEngine::getInstance()->preloadBackgroundMusic(soundIt->c_str());
-        soundIt++;
-    }
-    
-    auto effectIt = effectFiles.begin();
-    while (effectIt!=effectFiles.end()) {
-        SimpleAudioEngine::getInstance()->preloadEffect(effectIt->c_str());
-        effectIt++;
-    }
-    
     log("%s\n", Director::getInstance()->getTextureCache()->getCachedTextureInfo().c_str());
 }
 

@@ -11,12 +11,8 @@
 
 #include "cocos2d.h"
 #include "common/VisibleRect.h"
-#include "extensions/cocos-ext.h"
-#include "SimpleAudioEngine.h"
 
 using namespace cocos2d;
-using namespace cocos2d::extension;
-using namespace CocosDenshion;
 
 #define DESIGN_WIDTH 640
 #define DESIGN_HEIGHT 1136

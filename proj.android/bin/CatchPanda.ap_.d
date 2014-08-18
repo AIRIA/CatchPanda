@@ -8,4 +8,6 @@
 /Users/AIRIA/cocos/CatchPanda/proj.android/bin/res/drawable-mdpi/icon.png \
 /Users/AIRIA/cocos/CatchPanda/proj.android/assets/CatchPanda.plist \
 /Users/AIRIA/cocos/CatchPanda/proj.android/assets/CatchPanda.pvr.ccz \
+/Users/AIRIA/cocos/CatchPanda/proj.android/assets/tip.fnt \
+/Users/AIRIA/cocos/CatchPanda/proj.android/assets/tip.png \
 /Users/AIRIA/cocos/CatchPanda/proj.android/bin/AndroidManifest.xml \

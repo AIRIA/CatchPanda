@@ -15,6 +15,9 @@ Dot *Dot::create(std::string fileName)
         dot->autorelease();
         dot->addEventListener();
         dot->setIsEnable(true);
+        dot->setCost(0);
+        dot->setCostG(0);
+        dot->setCostH(0);
         return dot;
     }
     

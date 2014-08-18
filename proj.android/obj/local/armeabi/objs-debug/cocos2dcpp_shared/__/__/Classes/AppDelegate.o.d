@@ -20,7 +20,6 @@
   /Users/AIRIA/dev/android/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/stdint.h \
   /Users/AIRIA/dev/android/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/sys/_types.h \
   /Users/AIRIA/dev/android/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/machine/_types.h \
-  /Users/AIRIA/dev/android/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/sys/_wchar_limits.h \
   /Users/AIRIA/dev/android/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/limits.h \
   /Users/AIRIA/dev/android/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/sys/limits.h \
   /Users/AIRIA/dev/android/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/linux/limits.h \
@@ -71,6 +70,8 @@
   /Users/AIRIA/dev/android/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libcxx/include/initializer_list \
   /Users/AIRIA/dev/android/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libcxx/include/tuple \
   /Users/AIRIA/dev/android/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libcxx/include/cstring \
+  /Users/AIRIA/dev/android/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libcxx/include/cassert \
+  /Users/AIRIA/dev/android/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/assert.h \
   /Users/AIRIA/dev/android/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libcxx/include/atomic \
   /Users/AIRIA/dev/android/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libcxx/include/__undef_min_max \
   /Users/AIRIA/dev/android/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libcxx/include/system_error \
@@ -113,8 +114,6 @@
   /Users/AIRIA/dev/android/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/alloca.h \
   /Users/AIRIA/dev/android/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/strings.h \
   /Users/AIRIA/dev/android/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/memory.h \
-  /Users/AIRIA/dev/android/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libcxx/include/cassert \
-  /Users/AIRIA/dev/android/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/assert.h \
   /Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/cocos/./base/CCVector.h \
   /Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/cocos/./base/CCMap.h \
   /Users/AIRIA/dev/android/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libcxx/include/unordered_map \
@@ -307,7 +306,7 @@
   /Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/cocos/./3d/CCAnimationCurve.inl \
   /Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/cocos/./3d/CCSprite3DMaterial.h \
   /Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/cocos/./audio/include/SimpleAudioEngine.h \
-  /Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/cocos/audio/android/../include/Export.h \
+  /Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/cocos/./audio/include/Export.h \
   /Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/cocos/./deprecated/CCDictionary.h \
   /Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/cocos/./deprecated/CCSet.h \
   /Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/cocos/./deprecated/CCInteger.h \
@@ -319,29 +318,7 @@
   jni/../../Classes/scenes/WelcomeScene.h \
   jni/../../Classes/base/BaseLayer.h \
   jni/../../Classes/common/CommonHeaders.h \
-  jni/../../Classes/common/VisibleRect.h \
-  /Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/../extensions/cocos-ext.h \
-  /Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/../extensions/ExtensionMacros.h \
-  /Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/../extensions/GUI/CCControlExtension/CCControlExtensions.h \
-  /Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/GUI/CCControlExtension/CCScale9Sprite.h \
-  /Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/GUI/CCControlExtension/CCControl.h \
-  /Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/GUI/CCControlExtension/CCControlUtils.h \
-  /Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/GUI/CCControlExtension/CCControlButton.h \
-  /Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/GUI/CCControlExtension/CCInvocation.h \
-  /Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/GUI/CCControlExtension/CCControlColourPicker.h \
-  /Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/GUI/CCControlExtension/CCControlHuePicker.h \
-  /Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/GUI/CCControlExtension/CCControlSaturationBrightnessPicker.h \
-  /Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/GUI/CCControlExtension/CCControlPotentiometer.h \
-  /Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/GUI/CCControlExtension/CCControlSlider.h \
-  /Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/GUI/CCControlExtension/CCControlStepper.h \
-  /Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/GUI/CCControlExtension/CCControlSwitch.h \
-  /Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/../extensions/GUI/CCScrollView/CCScrollView.h \
-  /Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/../extensions/GUI/CCScrollView/CCTableView.h \
-  /Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/GUI/CCScrollView/CCTableViewCell.h \
-  /Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/../extensions/GUI/CCEditBox/CCEditBox.h \
-  /Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/../extensions/physics-nodes/CCPhysicsDebugNode.h \
-  /Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/../extensions/physics-nodes/CCPhysicsSprite.h \
-  /Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/../extensions/assets-manager/AssetsManager.h
+  jni/../../Classes/common/VisibleRect.h
 
 jni/../../Classes/AppDelegate.h:
 
@@ -384,8 +361,6 @@ jni/../../Classes/AppDelegate.h:
 /Users/AIRIA/dev/android/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/sys/_types.h:
 
 /Users/AIRIA/dev/android/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/machine/_types.h:
-
-/Users/AIRIA/dev/android/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/sys/_wchar_limits.h:
 
 /Users/AIRIA/dev/android/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/limits.h:
 
@@ -487,6 +462,10 @@ jni/../../Classes/AppDelegate.h:
 
 /Users/AIRIA/dev/android/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libcxx/include/cstring:
 
+/Users/AIRIA/dev/android/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libcxx/include/cassert:
+
+/Users/AIRIA/dev/android/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/assert.h:
+
 /Users/AIRIA/dev/android/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libcxx/include/atomic:
 
 /Users/AIRIA/dev/android/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libcxx/include/__undef_min_max:
@@ -570,10 +549,6 @@ jni/../../Classes/AppDelegate.h:
 /Users/AIRIA/dev/android/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/strings.h:
 
 /Users/AIRIA/dev/android/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/memory.h:
-
-/Users/AIRIA/dev/android/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libcxx/include/cassert:
-
-/Users/AIRIA/dev/android/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/assert.h:
 
 /Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/cocos/./base/CCVector.h:
 
@@ -959,7 +934,7 @@ jni/../../Classes/AppDelegate.h:
 
 /Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/cocos/./audio/include/SimpleAudioEngine.h:
 
-/Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/cocos/audio/android/../include/Export.h:
+/Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/cocos/./audio/include/Export.h:
 
 /Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/cocos/./deprecated/CCDictionary.h:
 
@@ -984,47 +959,3 @@ jni/../../Classes/base/BaseLayer.h:
 jni/../../Classes/common/CommonHeaders.h:
 
 jni/../../Classes/common/VisibleRect.h:
-
-/Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/../extensions/cocos-ext.h:
-
-/Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/../extensions/ExtensionMacros.h:
-
-/Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/../extensions/GUI/CCControlExtension/CCControlExtensions.h:
-
-/Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/GUI/CCControlExtension/CCScale9Sprite.h:
-
-/Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/GUI/CCControlExtension/CCControl.h:
-
-/Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/GUI/CCControlExtension/CCControlUtils.h:
-
-/Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/GUI/CCControlExtension/CCControlButton.h:
-
-/Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/GUI/CCControlExtension/CCInvocation.h:
-
-/Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/GUI/CCControlExtension/CCControlColourPicker.h:
-
-/Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/GUI/CCControlExtension/CCControlHuePicker.h:
-
-/Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/GUI/CCControlExtension/CCControlSaturationBrightnessPicker.h:
-
-/Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/GUI/CCControlExtension/CCControlPotentiometer.h:
-
-/Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/GUI/CCControlExtension/CCControlSlider.h:
-
-/Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/GUI/CCControlExtension/CCControlStepper.h:
-
-/Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/GUI/CCControlExtension/CCControlSwitch.h:
-
-/Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/../extensions/GUI/CCScrollView/CCScrollView.h:
-
-/Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/../extensions/GUI/CCScrollView/CCTableView.h:
-
-/Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/GUI/CCScrollView/CCTableViewCell.h:
-
-/Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/../extensions/GUI/CCEditBox/CCEditBox.h:
-
-/Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/../extensions/physics-nodes/CCPhysicsDebugNode.h:
-
-/Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/../extensions/physics-nodes/CCPhysicsSprite.h:
-
-/Users/AIRIA/cocos/CatchPanda/proj.android/../cocos2d/extensions/../extensions/assets-manager/AssetsManager.h:

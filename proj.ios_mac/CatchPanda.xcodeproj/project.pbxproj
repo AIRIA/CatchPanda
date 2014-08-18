@@ -35,6 +35,12 @@
 		41627A4C199B3E5A007892EF /* BaseSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 41627A49199B3E5A007892EF /* BaseSprite.cpp */; };
 		41627A4F199B51D8007892EF /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 41627A4D199B51D8007892EF /* GameScene.cpp */; };
 		41627A50199B51D8007892EF /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 41627A4D199B51D8007892EF /* GameScene.cpp */; };
+		4168F71C19A1BA6F003987EF /* ResultPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4168F71A19A1BA6F003987EF /* ResultPanel.cpp */; };
+		4168F71D19A1BA6F003987EF /* ResultPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4168F71A19A1BA6F003987EF /* ResultPanel.cpp */; };
+		4168F72219A1D007003987EF /* tip.png in Resources */ = {isa = PBXBuildFile; fileRef = 4168F72019A1D006003987EF /* tip.png */; };
+		4168F72319A1D007003987EF /* tip.png in Resources */ = {isa = PBXBuildFile; fileRef = 4168F72019A1D006003987EF /* tip.png */; };
+		4168F72419A1D007003987EF /* tip.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 4168F72119A1D007003987EF /* tip.fnt */; };
+		4168F72519A1D007003987EF /* tip.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 4168F72119A1D007003987EF /* tip.fnt */; };
 		417954F8199C5CE100B4613E /* Dot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 417954F6199C5CE100B4613E /* Dot.cpp */; };
 		417954F9199C5CE100B4613E /* Dot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 417954F6199C5CE100B4613E /* Dot.cpp */; };
 		41A058D8199B715400D7B9ED /* Panda.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 41A058D6199B715400D7B9ED /* Panda.cpp */; };
@@ -246,6 +252,10 @@
 		41627A4A199B3E5A007892EF /* BaseSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSprite.h; sourceTree = "<group>"; };
 		41627A4D199B51D8007892EF /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameScene.cpp; path = ../Classes/scenes/GameScene.cpp; sourceTree = "<group>"; };
 		41627A4E199B51D8007892EF /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameScene.h; path = ../Classes/scenes/GameScene.h; sourceTree = "<group>"; };
+		4168F71A19A1BA6F003987EF /* ResultPanel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ResultPanel.cpp; path = ../Classes/panda/ResultPanel.cpp; sourceTree = "<group>"; };
+		4168F71B19A1BA6F003987EF /* ResultPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResultPanel.h; path = ../Classes/panda/ResultPanel.h; sourceTree = "<group>"; };
+		4168F72019A1D006003987EF /* tip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tip.png; sourceTree = "<group>"; };
+		4168F72119A1D007003987EF /* tip.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tip.fnt; sourceTree = "<group>"; };
 		417954F6199C5CE100B4613E /* Dot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Dot.cpp; path = ../Classes/panda/Dot.cpp; sourceTree = "<group>"; };
 		417954F7199C5CE100B4613E /* Dot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dot.h; path = ../Classes/panda/Dot.h; sourceTree = "<group>"; };
 		41A058D6199B715400D7B9ED /* Panda.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Panda.cpp; path = ../Classes/panda/Panda.cpp; sourceTree = "<group>"; };
@@ -472,6 +482,8 @@
 				41A058D7199B715400D7B9ED /* Panda.h */,
 				417954F6199C5CE100B4613E /* Dot.cpp */,
 				417954F7199C5CE100B4613E /* Dot.h */,
+				4168F71A19A1BA6F003987EF /* ResultPanel.cpp */,
+				4168F71B19A1BA6F003987EF /* ResultPanel.h */,
 			);
 			name = panda;
 			sourceTree = "<group>";
@@ -524,6 +536,8 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4168F72019A1D006003987EF /* tip.png */,
+				4168F72119A1D007003987EF /* tip.fnt */,
 				41627A43199B39CA007892EF /* CatchPanda.pvr.ccz */,
 				41627A44199B39CA007892EF /* CatchPanda.plist */,
 			);
@@ -697,8 +711,10 @@
 			files = (
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
+				4168F72419A1D007003987EF /* tip.fnt in Resources */,
 				41627A45199B39CA007892EF /* CatchPanda.pvr.ccz in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
+				4168F72219A1D007003987EF /* tip.png in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
@@ -722,7 +738,9 @@
 			files = (
 				41627A48199B39CA007892EF /* CatchPanda.plist in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
+				4168F72519A1D007003987EF /* tip.fnt in Resources */,
 				41627A46199B39CA007892EF /* CatchPanda.pvr.ccz in Resources */,
+				4168F72319A1D007003987EF /* tip.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -740,6 +758,7 @@
 				41627A32199B20E8007892EF /* BaseLayer.cpp in Sources */,
 				41627A41199B24CD007892EF /* WelcomeScene.cpp in Sources */,
 				41627A3D199B2385007892EF /* VisibleRect.cpp in Sources */,
+				4168F71C19A1BA6F003987EF /* ResultPanel.cpp in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
 				41627A4B199B3E5A007892EF /* BaseSprite.cpp in Sources */,
 				41A058D8199B715400D7B9ED /* Panda.cpp in Sources */,
@@ -760,6 +779,7 @@
 				41627A42199B24CD007892EF /* WelcomeScene.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				41627A50199B51D8007892EF /* GameScene.cpp in Sources */,
+				4168F71D19A1BA6F003987EF /* ResultPanel.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

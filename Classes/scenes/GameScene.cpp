@@ -9,6 +9,7 @@
 #include "GameScene.h"
 #include "panda/Panda.h"
 #include "panda/Dot.h"
+#include "panda/ResultPanel.h"
 
 #define DOTS_COUNT 81
 
@@ -85,8 +86,9 @@ void GameScene::__dotTouchHandler(Ref *pSender)
     target->setDisplayFrame(Sprite::createWithSpriteFrameName("pot62r.png")->getSpriteFrame());
     target->setIsEnable(false);
     target->getEventDispatcher()->removeEventListenersForTarget(target);
-//        auto dot = static_cast<Dot*>(wrapper->getChildByTag(1040));
+    
     __findShortPath();
+
     Dot *nextDot = nullptr;
     if (bestPath.size()==0)
     {
@@ -95,7 +97,8 @@ void GameScene::__dotTouchHandler(Ref *pSender)
         auto surroundDots = __getSurroundDots(__getPandaDot());
         auto count = surroundDots.size();
         if (count==0) {
-            MessageBox("game win", "tips");
+            auto result = ResultPanel::create(ResultPanel::win);
+            addChild(result);
             return;
         }
         else
@@ -106,7 +109,7 @@ void GameScene::__dotTouchHandler(Ref *pSender)
     }
     else
     {
-        nextDot = bestPath.at(1);
+        nextDot = bestPath.at(bestPath.size()-1);
     }
     panda->setCol(nextDot->getCol());
     panda->setRow(nextDot->getRow());
@@ -116,7 +119,8 @@ void GameScene::__dotTouchHandler(Ref *pSender)
     auto pandaRow = panda->getRow(),pandaCol = panda->getCol();
     if(pandaRow==1||pandaRow==9||pandaCol==1||pandaCol==9)
     {
-        MessageBox("game over", "tips");
+        auto result = ResultPanel::create(ResultPanel::failed);
+        addChild(result);
     }
 }
 
@@ -172,23 +176,37 @@ Vector<Dot*> GameScene::__findShortestStep(Dot *endDot)
     Vector<Dot*> closeVec;//寻路已考察集合
     auto startDot = __getPandaDot();
     auto dot = startDot;
+    // temp
+    auto dotIt = dotsVec.begin();
+    while (dotIt!=dotsVec.end()) {
+        (*dotIt)->setOpacity(255);
+        dotIt++;
+    }
+    
+    
     while (dot!=endDot) {
         auto surroundDots = __getSurroundDots(dot);
         /* 计算出来周围的节点代价 */
         for (auto it = surroundDots.begin(); it!=surroundDots.end(); it++)
         {
             auto surroundDot = *it;
-            auto cost = surroundDot->getPosition().getDistance(endDot->getPosition());
+            auto costG = 1+dot->getCostG();
+            auto costH = surroundDot->getPosition().getDistance(endDot->getPosition());
+            auto cost = costG+costH;
             if (openVec.contains(surroundDot) || closeVec.contains(surroundDot))
             {
                 if (surroundDot->getCost()>cost)
                 {
                     surroundDot->setCost(cost);
+                    surroundDot->setCostG(costG);
+                    surroundDot->setCostH(costH);
                 }
             }
             else
             {
                 surroundDot->setCost(cost);
+                surroundDot->setCostG(costG);
+                surroundDot->setCostH(costH);
                 openVec.pushBack(surroundDot);
             }
         }
@@ -204,24 +222,56 @@ Vector<Dot*> GameScene::__findShortestStep(Dot *endDot)
                 nextDot = *it;
             }
         }
+        
+        
+        
         /* 当前开始的节点已经考察过 不再考察 加入到已考察列表*/
         closeVec.pushBack(dot);
-//        dot->setOpacity(128);
+        
         if(openVec.size()==0)
         {
-            log("%s","路径无效");
-            closeVec.clear();
-            return closeVec;
+            if(dot==startDot)
+            {
+                log("%s","路径无效");
+                closeVec.clear();
+                return closeVec;
+            }
+            else
+            {
+                dot = dot->parentDot;
+                continue;
+            }
         }
+        nextDot->parentDot = dot;
         dot = nextDot;
         openVec.eraseObject(nextDot);
     }
+
     closeVec.pushBack(endDot);
-    return closeVec;
+    
+    /* 恢复Dot的代价 */
+    auto it = dotsVec.begin();
+    while (it!=dotsVec.end()) {
+        auto dot = *it;
+        dot->setCostH(0);
+        dot->setCost(0);
+        dot->setCostG(0);
+        it++;
+    }
+    
+    Vector<Dot*> pathVec;
+    auto path = endDot;
+    while (path!=startDot) {
+        pathVec.pushBack(path);
+        path = path->parentDot;
+    }
+    
+    return pathVec;
 }
 
 void GameScene::__findShortPath()
 {
+    bestPath.clear();
     Vector<Dot*> borderDotVec;
     for (auto it = dotsVec.begin(); it!=dotsVec.end(); it++) {
         auto dot = *it;
@@ -235,6 +285,10 @@ void GameScene::__findShortPath()
     for (auto it = borderDotVec.begin(); it!=borderDotVec.end(); it++) {
        
         auto path = __findShortestStep(*it);
+        if(path.size()==0)
+        {
+            continue;
+        }
         if (step==-1 || path.size()<step) {
             step = path.size();
             bestPath.clear();
@@ -242,18 +296,12 @@ void GameScene::__findShortPath()
         }
     }
     
-}
-
-int GameScene::__getShortestDistance(Dot *dot)
-{
-    auto surroundDots = __getSurroundDots(dot);
-    auto step = 0;
-    for (auto it=surroundDots.begin(); it!=surroundDots.end(); it++) {
-        auto dot = *it;
-        auto row = dot->getRow();
-        auto col = dot->getRow();
-        
+    auto path = bestPath.begin();
+    while (path!=bestPath.end()) {
+        (*path)->setOpacity(128);
+        path++;
     }
+    
 }
 
 Dot *GameScene::__getPandaDot()
@@ -264,7 +312,3 @@ Dot *GameScene::__getPandaDot()
     return static_cast<Dot*>(wrapper->getChildByTag(idx+1000-10));
 }
 
-Dot *GameScene::__getNextDot()
-{
-    
-}
