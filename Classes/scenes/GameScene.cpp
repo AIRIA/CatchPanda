@@ -296,11 +296,11 @@ void GameScene::__findShortPath()
         }
     }
     
-    auto path = bestPath.begin();
-    while (path!=bestPath.end()) {
-        (*path)->setOpacity(128);
-        path++;
-    }
+//    auto path = bestPath.begin();
+//    while (path!=bestPath.end()) {
+//        (*path)->setOpacity(128);
+//        path++;
+//    }
     
 }
 
