@@ -28,14 +28,13 @@ package org.cocos2dx.cpp;
 
 import org.cocos2dx.lib.Cocos2dxActivity;
 
-import a.b.c.AdManager;
-import a.b.c.st.SpotManager;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
 import android.view.KeyEvent;
 
+import com.feiwo.view.FwInterstitialManager;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.message.PushAgent;
 
@@ -48,12 +47,8 @@ public class AppActivity extends Cocos2dxActivity {
 		PushAgent mPushAgent = PushAgent.getInstance(this);
 		mPushAgent.enable();
 		PushAgent.getInstance(this).onAppStart();
-		AdManager.getInstance(this).init("2850e25d57de960d",
-				"7f4a715d5137b3cf", false);
-		SpotManager.getInstance(this).loadSpotAds();
-		AdManager.getInstance(this).setUserDataCollect(true);
-		AdManager.getInstance(this).setEnableDebugLog(false);
-//		JniBrige.getInstance().init(this);
+		FwInterstitialManager.init(this,"e6403365350214703763569edef497e0");
+		JniBrige.getInstance().init(this);
 	}
 	
 
@@ -64,7 +59,6 @@ public class AppActivity extends Cocos2dxActivity {
 
 	@Override
 	protected void onDestroy() {
-		SpotManager.getInstance(this).unregisterSceenReceiver();
 		super.onDestroy();
 	}
 
@@ -97,16 +91,12 @@ public class AppActivity extends Cocos2dxActivity {
 	}
 	@Override
 	public void onBackPressed() {
-	    // 如果有需要，可以点击后退关闭插屏广告（可选）。
-	    if (!SpotManager.getInstance(this).disMiss(true)) {
-	        super.onBackPressed();
-	    }
+	   
 	}
 
 	@Override
 	protected void onStop() {
-	    //如果不调用此方法，则按home键的时候会出现图标无法显示的情况。
-	    SpotManager.getInstance(this).disMiss(false);
+	    
 
 	    super.onStop();
 	}

@@ -3,10 +3,11 @@ package org.cocos2dx.cpp;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import a.b.c.st.SpotManager;
 import android.app.Activity;
 import android.util.Log;
 import android.widget.Toast;
+
+import com.feiwo.view.FwInterstitialManager;
 
 public class JniBrige {
 
@@ -49,7 +50,7 @@ public class JniBrige {
 					/* 检查是否开启了广告 */
 					try {
 						JSONObject json = new JSONObject(res);
-						enableAds = json.getBoolean("v1_xiaomi");
+						enableAds = json.getBoolean("v1_anzhi");
 						Log.v(TAG, res);
 					} catch (JSONException e) {
 						e.printStackTrace();
@@ -103,7 +104,8 @@ public class JniBrige {
 		context.runOnUiThread(new Runnable() {
 			@Override
 			public void run() {
-				SpotManager.getInstance(context).showSpotAds(context);
+				FwInterstitialManager.showInterstitial();
+
 			}
 		});
 	}

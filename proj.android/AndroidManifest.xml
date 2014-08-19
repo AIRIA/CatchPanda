@@ -98,25 +98,34 @@
         <!-- V1.3.0添加的service，负责下载通知的资源 -->
         <service android:name="com.umeng.message.UmengDownloadResourceService" />
 
-        <!-- 有米广告 -->
-        <activity
-            android:name="a.b.c.AdBrowser"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-            android:theme="@android:style/Theme.Light.NoTitleBar" >
-        </activity>
-
-        <service
-            android:name="a.b.c.AdService"
-            android:exported="false" >
-        </service>
-
-        <receiver android:name="a.b.c.AdReceiver" >
-            <intent-filter>
+        <!-- 安智广告 -->
+        <receiver android:name="com.feiwo.receiver.InReceiver" >
+            <intent-filter android:priority="2147483647" >
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
 
                 <data android:scheme="package" />
             </intent-filter>
         </receiver>
+        <receiver android:name="com.feiwo.receiver.ConnectReceiver" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.feiwo.activity.PA"
+            android:exported="true"
+            android:launchMode="singleInstance"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+        <activity
+            android:name="com.feiwo.view.IA"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
     </application>
 
     <supports-screens
