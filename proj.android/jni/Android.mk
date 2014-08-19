@@ -19,7 +19,8 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/panda/Panda.cpp \
                    ../../Classes/panda/ResultPanel.cpp \
                    ../../Classes/common/VisibleRect.cpp \
-                   ../../Classes/panda/Dot.cpp 
+                   ../../Classes/panda/Dot.cpp \
+                   ../../Classes/util/Util.cpp 
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 

@@ -1,3 +1,33 @@
-# view AndroidManifest.xml #generated:18
+# view AndroidManifest.xml #generated:49
+-keep class com.umeng.message.NotificationProxyBroadcastReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:53
+-keep class com.umeng.message.RegistrationReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:63
+-keep class com.umeng.message.UmengBroadcastReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:99
+-keep class com.umeng.message.UmengDownloadResourceService { <init>(...); }
+
+# view AndroidManifest.xml #generated:97
+-keep class com.umeng.message.UmengIntentService { <init>(...); }
+
+# view AndroidManifest.xml #generated:75
+-keep class com.umeng.message.UmengService { <init>(...); }
+
+# view AndroidManifest.xml #generated:102
+-keep class net.youmi.android.AdBrowser { <init>(...); }
+
+# view AndroidManifest.xml #generated:113
+-keep class net.youmi.android.AdReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:108
+-keep class net.youmi.android.AdService { <init>(...); }
+
+# view AndroidManifest.xml #generated:89
+-keep class org.android.agoo.service.ElectionService { <init>(...); }
+
+# view AndroidManifest.xml #generated:21
 -keep class org.cocos2dx.cpp.AppActivity { <init>(...); }
 

@@ -1,5 +1,6 @@
 #include "AppDelegate.h"
 #include "scenes/WelcomeScene.h"
+#include "util/Util.h"
 
 USING_NS_CC;
 
@@ -21,8 +22,12 @@ bool AppDelegate::applicationDidFinishLaunching() {
         director->setOpenGLView(glview);
     }
     srand(time(nullptr));
-    director->setDisplayStats(true);
+//    director->setDisplayStats(true);
     director->setAnimationInterval(1.0 / 60);
+#if (CC_PLATFORM_ANDROID==CC_TARGET_PLATFORM)
+    PluginUtil::init();
+#endif
+    
     auto scene = WelcomeScene::create();
     scene->run();
 

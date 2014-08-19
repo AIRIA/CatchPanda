@@ -9,6 +9,13 @@
 #include "ResultPanel.h"
 #include "scenes/GameScene.h"
 #include "base/BaseSprite.h"
+#include "util/Util.h"
+
+void ResultPanel::onEnter()
+{
+    LayerColor::onEnter();
+    Util::showSpotAds();
+}
 
 ResultPanel *ResultPanel::create(ResultPanel::ResultType type)
 {

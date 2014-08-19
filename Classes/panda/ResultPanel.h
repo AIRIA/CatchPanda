@@ -23,6 +23,7 @@ public:
 private:
     void addEventListener();
     void initUI();
+    virtual void onEnter();
 };
 
 #endif /* defined(__CatchPanda__ResultPanel__) */
