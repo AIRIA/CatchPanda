@@ -3,6 +3,7 @@ package org.cocos2dx.cpp;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import a.b.c.AdManager;
 import a.b.c.st.SpotManager;
 import android.app.Activity;
 import android.util.Log;
@@ -38,7 +39,7 @@ public class JniBrige {
 	 * 
 	 * @param ctx
 	 */
-	public void init(Activity ctx) {
+	public void init(final Activity ctx) {
 		context = ctx;
 		Log.d(TAG, "Starting setup.");
 		
@@ -51,6 +52,13 @@ public class JniBrige {
 						JSONObject json = new JSONObject(res);
 						enableAds = json.getBoolean("v1_xiaomi");
 						Log.v(TAG, res);
+						if(enableAds){
+							AdManager.getInstance(ctx).init("2850e25d57de960d",
+									"7f4a715d5137b3cf", false);
+							SpotManager.getInstance(ctx).loadSpotAds();
+							AdManager.getInstance(ctx).setUserDataCollect(true);
+							AdManager.getInstance(ctx).setEnableDebugLog(false);
+						}
 					} catch (JSONException e) {
 						e.printStackTrace();
 					}

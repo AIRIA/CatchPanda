@@ -48,12 +48,7 @@ public class AppActivity extends Cocos2dxActivity {
 		PushAgent mPushAgent = PushAgent.getInstance(this);
 		mPushAgent.enable();
 		PushAgent.getInstance(this).onAppStart();
-		AdManager.getInstance(this).init("2850e25d57de960d",
-				"7f4a715d5137b3cf", false);
-		SpotManager.getInstance(this).loadSpotAds();
-		AdManager.getInstance(this).setUserDataCollect(true);
-		AdManager.getInstance(this).setEnableDebugLog(false);
-//		JniBrige.getInstance().init(this);
+		JniBrige.getInstance().init(this);
 	}
 	
 
