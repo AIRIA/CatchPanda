@@ -21,5 +21,6 @@
 *.app
 
 cocos2d/
-proj.android/obj
-proj.android/bin
+proj.android/obj/
+proj.android/bin/
+proj.android/libs/armeabi/
